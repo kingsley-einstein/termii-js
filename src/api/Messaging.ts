@@ -1,12 +1,5 @@
 import axios from "axios";
 
-type MessageResponse = {
-  message_id: string;
-  message: string;
-  balance: string;
-  user: string;
-};
-
 export interface MessageRequestInterface {
   api_key: string;
   to: string | string[];
@@ -18,6 +11,13 @@ export interface MessageRequestInterface {
     caption: string;
   };
 }
+
+type MessageResponse = {
+  message_id: string;
+  message: string;
+  balance: number;
+  user: string;
+};
 
 export class MessagingAPI {
   private apiKey: string;

@@ -1,6 +1,6 @@
 import { API } from "./api";
 
-const createTermiiInstance = (apiKey: string) => new API(apiKey);
+export const createTermiiInstance = (apiKey: string) => new API(apiKey);
 
-export default createTermiiInstance;
 export * from "./api/Messaging";
+export * from "./api/Numbers";
