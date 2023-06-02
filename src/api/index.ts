@@ -1,7 +1,9 @@
+import { assign, create } from "lodash";
 import { MessageRequestInterface, MessagingAPI } from "./Messaging";
 import { NumberRequestInterface, NumbersAPI } from "./Numbers";
 import { SenderIDAPI, SenderIDRequestInterface } from "./SenderID";
 import { TemplateAPI, TemplateRequestInterface } from "./Template";
+import { SendTokenAPI, SendTokenRequestInterface } from "./token";
 
 export class API {
   private apiKey: string;
@@ -10,22 +12,31 @@ export class API {
   }
 
   public messaging(requestInterface: Omit<MessageRequestInterface, "api_key">) {
-    const obj = Object.defineProperty(requestInterface, "api_key", { value: this.apiKey });
-    return MessagingAPI.createMessagingInstance(obj as MessageRequestInterface);
+    const obj = assign(requestInterface, { api_key: this.apiKey });
+    return MessagingAPI.createMessagingInstance(obj);
   }
 
   public numbers(requestInterface: Omit<NumberRequestInterface, "api_key">) {
-    const obj = Object.defineProperty(requestInterface, "api_key", { value: this.apiKey });
-    return NumbersAPI.createNumberInstance(obj as NumberRequestInterface);
+    const obj = assign(requestInterface, { api_key: this.apiKey });
+    return NumbersAPI.createNumberInstance(obj);
   }
 
   public senderID(requestInterface: Omit<SenderIDRequestInterface, "api_key">) {
-    const obj = Object.defineProperty(requestInterface, "api_key", { value: this.apiKey });
-    return SenderIDAPI.createSenderIDInstance(obj as SenderIDRequestInterface);
+    const obj = assign(requestInterface, { api_key: this.apiKey });
+    return SenderIDAPI.createSenderIDInstance(obj);
   }
 
   public template(requestInterface: Omit<TemplateRequestInterface, "api_key">) {
-    const obj = Object.defineProperty(requestInterface, "api_key", { value: this.apiKey });
-    return TemplateAPI.createTemplateInstance(obj as TemplateRequestInterface);
+    const obj = assign(requestInterface, { api_key: this.apiKey });
+    return TemplateAPI.createTemplateInstance(obj);
+  }
+
+  public get tokens() {
+    return create({
+      sendToken: (requestInterface: Omit<SendTokenRequestInterface, "api_key">) => {
+        const obj = assign(requestInterface, { api_key: this.apiKey });
+        return SendTokenAPI.createSendTokenInstance(obj);
+      }
+    });
   }
 }
