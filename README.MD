@@ -9,13 +9,13 @@ Termii-Js is a convenience Typescript/JavaScript library that provides an interf
 To use, first install:
 
 ```sh
-npm install termii-js
+npm install @lonely_dev/termii-js
 ```
 
 or
 
 ```sh
-yarn add termii-js
+yarn add @lonely_dev/termii-js
 ```
 
 The library provides classes you can utilize in consuming some of the various APIs provided by Termii. These APIs are made available by the library as dedicated classes or as part of a root API.
@@ -25,7 +25,7 @@ The library provides classes you can utilize in consuming some of the various AP
 You can send a simple message like so:
 
 ```javascript
-const termii = require("termii-js");
+const termii = require("@lonely_dev/termii-js");
 const termiiAPIInstance = termii.createTermiiAPIInstance("API_KEY_GOES_HERE"); // You can also use destructuring instead
 
 (async () => {
@@ -43,7 +43,7 @@ const termiiAPIInstance = termii.createTermiiAPIInstance("API_KEY_GOES_HERE"); /
 or like so:
 
 ```javascript
-const { MessageAPI } = require("termii-js");
+const { MessageAPI } = require("@lonely_dev/termii-js");
 
 (async () => {
   await MessageAPI
@@ -78,7 +78,7 @@ The NumbersAPI class provides the interface for the Termii `number` API. You can
 or
 
 ```javascript
-const { NumbersAPI } = require("termii-js");
+const { NumbersAPI } = require("@lonely_dev/termii-js");
 
 (async () => {
   await NumbersAPI
