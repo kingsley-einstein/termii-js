@@ -39,3 +39,21 @@ const termiiAPIInstance = termii.createTermiiAPIInstance("API_KEY_GOES_HERE"); /
     .send();
 })();
 ```
+
+or like so:
+
+```javascript
+const { MessageAPI } = require("termii-js");
+
+(async () => {
+  await MessageAPI
+    .createMessagingInstance({
+      to: "PHONE_NUMBER",
+      from: "SENDER_ID",
+      sms: "MESSAGE",
+      channel: "generic",
+      api_key: "API_KEY_HERE"
+    })
+    .send();
+})();
+```
