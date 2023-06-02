@@ -12,7 +12,7 @@ export interface MessageRequestInterface {
   };
 }
 
-type MessageResponse = {
+export type MessageResponse = {
   message_id: string;
   message: string;
   balance: number;

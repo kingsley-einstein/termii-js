@@ -6,7 +6,7 @@ export interface NumberRequestInterface {
   sms: string;
 }
 
-type NumbersResponse = {
+export type NumbersResponse = {
   code: string;
   message_id: string;
   message: string;

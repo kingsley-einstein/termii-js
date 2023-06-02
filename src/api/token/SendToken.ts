@@ -11,7 +11,7 @@ export interface SendTokenRequestInterface extends BaseTokenAPIRequestInterface 
   message_text: string;
 }
 
-type SendTokenResponse = {
+export type SendTokenResponse = {
   smsStatus: string;
   to: string;
   pinId: string;

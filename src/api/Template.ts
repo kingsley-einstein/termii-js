@@ -12,7 +12,7 @@ export interface TemplateRequestInterface {
   };
 }
 
-type TemplateResponse = {
+export type TemplateResponse = {
   code: string;
   message_id: string;
   message: string;

@@ -3,7 +3,16 @@ import { MessageRequestInterface, MessagingAPI } from "./Messaging";
 import { NumberRequestInterface, NumbersAPI } from "./Numbers";
 import { SenderIDAPI, SenderIDRequestInterface } from "./SenderID";
 import { TemplateAPI, TemplateRequestInterface } from "./Template";
-import { SendTokenAPI, SendTokenRequestInterface } from "./token";
+import {
+  EmailTokenAPI,
+  EmailTokenRequestInterface,
+  SendTokenAPI,
+  SendTokenRequestInterface,
+  VoiceCallAPI,
+  VoiceCallRequestInterface,
+  VoiceTokenAPI,
+  VoiceTokenRequestInterface
+} from "./token";
 
 export class API {
   private apiKey: string;
@@ -36,6 +45,18 @@ export class API {
       sendToken: (requestInterface: Omit<SendTokenRequestInterface, "api_key">) => {
         const obj = assign(requestInterface, { api_key: this.apiKey });
         return SendTokenAPI.createSendTokenInstance(obj);
+      },
+      voiceToken: (requestInterface: Omit<VoiceTokenRequestInterface, "api_key">) => {
+        const obj = assign(requestInterface, { api_key: this.apiKey });
+        return VoiceTokenAPI.createVoiceTokenInstance(obj);
+      },
+      emailToken: (requestInterface: Omit<EmailTokenRequestInterface, "api_key">) => {
+        const obj = assign(requestInterface, { api_key: this.apiKey });
+        return EmailTokenAPI.createEmailTokenInstance(obj);
+      },
+      voiceCall: (requestInterface: Omit<VoiceCallRequestInterface, "api_key">) => {
+        const obj = assign(requestInterface, { api_key: this.apiKey });
+        return VoiceCallAPI.createVoiceTokenInstance(obj);
       }
     });
   }
