@@ -57,3 +57,38 @@ const { MessageAPI } = require("termii-js");
     .send();
 })();
 ```
+
+### Other available APIs
+
+* NumbersAPI [https://www.developers.termii.com/number](https://www.developers.termii.com/number)
+
+The NumbersAPI class provides the interface for the Termii `number` API. You can access it using the `numbers` function of the Termii API instance or you can import the class directly.
+
+```javascript
+// Removed for brevity
+(async () => {
+  await termiiAPIInstance
+    .numbers({
+      to: "PHONE_NUMBER",
+      sms: "MESSAGE"
+    })
+})()
+```
+
+or
+
+```javascript
+const { NumbersAPI } = require("termii-js");
+
+(async () => {
+  await NumbersAPI
+    .createNumberInstance({
+      to: "PHONE_NUMBER",
+      sms: "MESSAGE",
+      api_key: "API_KEY_HERE"
+    })
+    .send();
+})();
+```
+
+*Side note:* Notice that you do not need to set the `api_key` field if you're accessing an API from the root instance, which is where you set the API key (i.e the function argument).
