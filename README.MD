@@ -25,7 +25,7 @@ The library provides classes you can utilize in consuming some of the various AP
 You can send a simple message like so:
 
 ```javascript
-const termii = require("termii");
+const termii = require("termii-js");
 const termiiAPIInstance = termii.createTermiiAPIInstance("API_KEY_GOES_HERE"); // You can also use destructuring instead
 
 (async () => {
