@@ -1,6 +1,6 @@
 {
   "name": "@lonely_dev/termii-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -36,5 +36,8 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
-  "files": ["dist", "LICENSE"]
+  "files": [
+    "dist",
+    "LICENSE"
+  ]
 }
