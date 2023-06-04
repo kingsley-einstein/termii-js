@@ -97,3 +97,8 @@ const { NumbersAPI } = require("@lonely_dev/termii-js");
 * SenderIDAPI [https://www.developers.termii.com/sender-id](https://www.developers.termii.com/sender-id)
 
 You can access the SendersIDAPI class using the `senderID` function of the root instance or by using the static `createSenderIDInstance` function exposed by the class itself. Use the link attached to this section to know how this instance can be configured. Remember that you only need to provide the API key again if you're not accessing from the root API instance. The non-static functions available in this class are `fetchSenderID` and `requestSenderID`
+
+
+* TemplateAPI [https://www.developers.termii.com/templates](https://www.developers.termii.com/templates)
+
+You can access the TemplateAPI class using the `template` function of the root instance or by using the static `createTemplateInstance` function exposed by the class itself.
