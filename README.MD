@@ -102,3 +102,35 @@ You can access the SendersIDAPI class using the `senderID` function of the root 
 * TemplateAPI [https://www.developers.termii.com/templates](https://www.developers.termii.com/templates)
 
 You can access the TemplateAPI class using the `template` function of the root instance or by using the static `createTemplateInstance` function exposed by the class itself.
+
+
+#### Tokens
+
+You can also access the tokens APIs by using the `tokens` variable of the root instance. 
+
+```javascript
+const tokens = termiiAPIInstance.tokens;
+```
+
+Each token API also has a dedicated class. The classes provided include: `EmailTokenAPI`, `SendTokenAPI`, `VoiceCallAPI` and `VoiceTokenAPI`. They can be accessed like so:
+
+```javascript
+(async () => {
+  await tokens.sendToken({ /* See docs for how to configure send token*/}).send();
+  await tokens.voiceToken({ /* See docs for how to configure voice token*/}).send();
+  await tokens.emailToken({ /* See docs for how to configure email token*/}).send();
+  await tokens.voiceCall({ /* See docs for how to configure send call*/}).send();
+})()
+```
+
+You can even access them through static functions.
+
+
+```javascript
+(async () => {
+  SendTokenAPI.createSendTokenInstance({/* See docs for how to configure send token*/}).send();
+  VoiceTokenAPI.createVoiceTokenInstance({/* See docs for how to configure voice token*/}).send();
+  EmailTokenAPI.createEmailTokenInstance({/* See docs for how to configure email token*/}).send();
+  VoiceCallAPI.createVoiceCallInstance({/* See docs for how to configure voice call*/}).send();
+})()
+```
