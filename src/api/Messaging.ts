@@ -5,7 +5,7 @@ export interface MessageRequestInterface {
   to: string | string[];
   from: string;
   sms: string;
-  channel: "dnd" | "whatsapp" | "generic";
+  channel: "dnd" | "whatsapp_otp" | "generic";
   media?: {
     url: string;
     caption: string;
@@ -24,7 +24,7 @@ export class MessagingAPI {
   private to: string | string[];
   private from: string;
   private sms: string;
-  private channel: "dnd" | "whatsapp" | "generic";
+  private channel: "dnd" | "whatsapp_otp" | "generic";
   private media?: { url: string; caption: string };
 
   constructor(requestInterface: MessageRequestInterface) {
@@ -62,7 +62,8 @@ export class MessagingAPI {
         type: "plain",
         api_key: this.apiKey,
         channel: this.channel,
-        media: this.media
+        media: this.media,
+        time_in_minutes: "10 minutes"
       })
       .then((res) => res.data);
   }
