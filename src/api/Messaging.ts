@@ -63,7 +63,7 @@ export class MessagingAPI {
         api_key: this.apiKey,
         channel: this.channel,
         media: this.media,
-        time_in_minutes: "10 minutes"
+        time_in_minutes: this.channel === "whatsapp_otp" ? "10 minutes" : undefined
       })
       .then((res) => res.data);
   }
